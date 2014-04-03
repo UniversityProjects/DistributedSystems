@@ -1,0 +1,3 @@
+INDEX VERSION 1.126+/media/sapo93/Gdrive/Scripts/Università/DistributedSystems/.metadata/.plugins/org.eclipse.jdt.core
+2046678892.index
+122411211.index
