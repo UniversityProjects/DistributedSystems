@@ -1,0 +1,38 @@
+package javaRMI.es3;
+
+import java.net.MalformedURLException;
+import java.rmi.Naming;
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+
+
+import javaRMI.es3.RegImplementation;
+import javaRMI.es3.RegInterface;
+
+public class RegServer {
+	
+	
+	public static void main(String[] args) throws RemoteException, MalformedURLException {
+		
+		int rmiPort = 1099; // RMI Port
+		
+		Event[] eventList = new Event[3]; 
+		
+		eventList[0] = new Event();
+		eventList[1] = new Event();		
+		eventList[2] = new Event();
+		
+		
+		LocateRegistry.createRegistry(rmiPort); // Add The Server To The Local Registry		
+		
+		
+		RegInterface reg = new RegImplementation(eventList); // Calculator Service Instantiation
+		
+		Naming.rebind("rmi://localhost:" + rmiPort + "/RegService", reg); // Rebinding
+		
+		System.out.println ("Server Running :)");
+		
+	}
+	
+
+}
