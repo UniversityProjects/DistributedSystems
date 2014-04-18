@@ -1,0 +1,39 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ES2</title>
+<script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(
+			function() {
+				reloadList();				
+				$('#submit').click( function() {
+					$.post("rest/blogposts", $('form').serialize(), function(){
+						reloadList();
+					});	
+						return false;
+					})});
+
+				function reloadList(){
+					$.getJSON("rest/blogposts", function(data) {
+						var string = "";
+						for (var i = 0; i < data.length; i++) {
+							string += "<div id=\"" + data[i].id + "\"><h1>"
+									+ data[i].title + "</h1><p>" + data[i].text
+									+ "</p></div>";
+						}
+						$('#container').append(string);
+					});
+				}
+</script>
+</head>
+<body>
+	<form action="./rest/blogposts" method="POST">
+		Title: <br /> <input type="text" name="title"> <br /> Text:
+		<br />
+		<textarea name="text"></textarea>
+		<br /> <input type="submit" id="submit"></input>
+	</form>
+	<div id="container"></div>
+</body>
+</html>

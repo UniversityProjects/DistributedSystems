@@ -1,0 +1,27 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>ES1</title>
+<script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+	// all'evento ready del document (la pagina), associa
+	// un gestore del click all'elemento con id link
+	$(document).ready(function() {
+		// svuota #container
+		$('#container').empty();
+		alert("Container is now empty");
+		// effettua una get all'indirizzo rest/es1
+		$.get("rest/es1", function(data) {
+			// callback a richiesta effettuata, crea un h1 con il testo della risposta del server
+			// e lo aggiunge a #container
+			$("#container").append("<h1>" + data + "</h1>");
+			alert("Load was performed.");
+		});
+	});
+</script>
+</head>
+<body>
+	<div id="container"></div>
+	<a href="#" id="link">Click me</a>
+</body>
+</html>
