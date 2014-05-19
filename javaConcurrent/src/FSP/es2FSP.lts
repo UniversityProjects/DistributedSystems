@@ -1,0 +1,11 @@
+PRODUCER = (produce->deposit1->PRODUCER).
+
+QUADRATIC = (extract1->calculate->deposit2->QUADRATIC).
+
+CONSUMER = (extract2->consume->CONSUMER).
+
+BUFFER1 = (deposit1->extract1->BUFFER1).
+
+BUFFER2 = (deposit2->extract2->BUFFER2).
+
+||SYS = (PRODUCER||QUADRATIC||BUFFER1||CONSUMER||BUFFER2).
