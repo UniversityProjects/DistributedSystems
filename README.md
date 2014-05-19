@@ -1,4 +1,8 @@
 DistributedSystems
 ==================
 
-Java Socket, RMI, Threads ...
+- Java Socket
+- Java RMI
+- Java Servlet
+- Ajax+Jquery
+- Java Threads
